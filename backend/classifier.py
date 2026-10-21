@@ -5,8 +5,18 @@ from PIL import Image
 import keras
 
 BASE_DIR = Path(__file__).resolve().parent
-CLASSES = ["Folha Sadia", "Mancha Parda", "Necrose de Nervuras", "Olho de Rã"]
-MODEL_PATH = BASE_DIR / "modelo_tabaco_reduzida_v1.keras"
+MODEL_PATH = BASE_DIR / "FumIA_mobilenetv2_v2.keras"
+
+CLASSES = [
+    "Mancha marrom",               # 0  Alternaria alternata
+    "Olho de rã Olho de boi",      # 1  Cercospora nicotianae
+    "Antracnose",                  # 2  Colletotrichum destructivum
+    "Oídio",                       # 3  Erysiphe cichoracearum
+    "Folha Sadia",                 # 4  Nicotiana tabacum (sem doença)
+    "Necrose das Venas",           # 5  Potato virus Y
+    "Mancha-Branca Ouro-Branco",   # 6  Pseudomonas cichorii
+    "Mosaico",                     # 7  Tobacco Mosaic Virus
+]
 
 if not MODEL_PATH.exists():
     raise FileNotFoundError(f"Arquivo '{MODEL_PATH.name}' não encontrado na pasta backend!")
